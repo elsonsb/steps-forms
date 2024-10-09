@@ -669,6 +669,7 @@
         nextStep.style.display = 'block'; //exibir o próximo passo
         passoexibido(Array.from(document.querySelectorAll('.step'))); //exibir o passo atual
       }
+      enviarAltura();
     }
 
     //função para voltar ao passo anterior
@@ -680,6 +681,8 @@
         prevStep.style.display = 'block'; //exibir o passo anterior
         passoexibido(Array.from(document.querySelectorAll('.step'))); //exibir o passo atual
       }
+        enviarAltura();
+
     }
 
     //função para validar o e-mail
@@ -1426,12 +1429,6 @@
       text-align: center;
     }
   </style>
-  <script>
-    // Chame esta função sempre que mudar a etapa
-    function etapaMudou() {
-        enviarAltura();
-    }
-</script>
 </body>
 
 </html>
