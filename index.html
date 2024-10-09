@@ -10,21 +10,15 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script>
-    // Função para enviar a altura atual do conteúdo para o documento principal
     function enviarAltura() {
-      const altura = document.body.scrollHeight; // Obtém a altura total do conteúdo
-      window.parent.postMessage({ altura: altura }, '*');
+        const altura = document.body.scrollHeight; // Obtém a altura total do conteúdo
+        window.parent.postMessage({ altura: altura }, '*'); // Envia a altura ao pai
     }
 
-    // Chama a função de ajuste de altura sempre que o documento carrega ou muda
+    // Chama a função sempre que o documento carrega ou muda
     window.onload = enviarAltura;
     window.onresize = enviarAltura;
-
-    // Se você estiver usando um formulário em etapas, chame a função `enviarAltura()` após a transição de etapa
-    function etapaMudou() {
-      enviarAltura();
-    }
-  </script>
+</script>
 </head>
 
 <body>
@@ -1432,6 +1426,12 @@
       text-align: center;
     }
   </style>
+  <script>
+    // Chame esta função sempre que mudar a etapa
+    function etapaMudou() {
+        enviarAltura();
+    }
+</script>
 </body>
 
 </html>
